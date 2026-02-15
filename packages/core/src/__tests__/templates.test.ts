@@ -37,7 +37,7 @@ describe('generateSoulMd', () => {
     expect(md).toContain('## Boundaries');
     expect(md).toContain('## Vibe');
     expect(md).toContain('## Continuity');
-    expect(md).toContain('## Facet Profile (Seakr Index)');
+    expect(md).toContain('## Facet Profile');
   });
 
   it('facet table shows correct confidence markers', () => {

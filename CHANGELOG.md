@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-02-15
 
 ### Added
-- 12-facet personality profiling system based on 33 academic frameworks (Seakr Index)
+- 12-facet personality profiling system based on 33 academic frameworks
 - `@openpersonality/core`: facets, templates, confidence merge, validation, data
 - `@openpersonality/mcp-server`: stdio MCP server
 - 6 MCP tools: `create_profile`, `update_profile`, `get_profile`, `get_or_create_profile`, `list_profiles`, `delete_profile`

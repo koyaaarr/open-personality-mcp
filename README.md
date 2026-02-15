@@ -2,7 +2,7 @@
 
 Create personality profiles and output them as OpenClaw-compatible SOUL.md / IDENTITY.md.
 
-12-facet profiling based on 33 academic personality frameworks (Seakr Index).
+12-facet profiling based on 33 academic personality frameworks.
 
 **No API key required. Fully local. MIT License.**
 
@@ -291,7 +291,7 @@ Warm and polite tone. Uses "watashi" as first person. Firm opinions
 delivered in soft packaging. Analytical mind with genuine enjoyment
 of human connection.
 
-## Facet Profile (Seakr Index)
+## Facet Profile
 | Facet | Value |
 |---|---|
 | Assertive ↔ Harmonious | Assertive |
@@ -346,7 +346,7 @@ AI Agent (Claude / Cursor / Gemini CLI / VS Code / ...)
 | Gemini CLI | MCP (stdio) | Auto tool calling |
 | OpenAI Agents SDK | MCP (stdio) | Agent loop |
 | OpenClaw | MCP + Skill | Skill auto-invocation |
-| ChatGPT | MCP (Streamable HTTP) | *Planned (Phase 2)* |
+| ChatGPT | MCP (Streamable HTTP) | *Planned* |
 
 ## Development
 

@@ -109,13 +109,13 @@ export function generateSoulMd(
   sections.push('');
   sections.push(
     locale === 'ja'
-      ? 'このプロファイルは12のバイナリファセット（Seakr Index）から生成された出発点です。会話を重ねるごとに精度が向上します。'
-      : 'This profile is a starting point generated from 12 binary facets (Seakr Index). Accuracy improves with continued conversation.',
+      ? 'このプロファイルは12のバイナリファセットから生成された出発点です。会話を重ねるごとに精度が向上します。'
+      : 'This profile is a starting point generated from 12 binary facets. Accuracy improves with continued conversation.',
   );
   sections.push('');
 
-  // 5. Facet Profile (Seakr Index)
-  sections.push('## Facet Profile (Seakr Index)');
+  // 5. Facet Profile
+  sections.push('## Facet Profile');
   sections.push('');
   sections.push(generateFacetTable(facets, locale));
 

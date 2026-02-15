@@ -5,4 +5,8 @@ dist/
 .DS_Store
 *.tsbuildinfo
 *.log
-.claude/settings.local.json
+
+# Internal files (not for public repository)
+docs/
+CLAUDE.md
+.claude/
