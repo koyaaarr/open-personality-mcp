@@ -27,6 +27,20 @@
     "typescript": "^5.7.0"
   },
   "license": "MIT",
+  "author": "koyaaarr",
+  "homepage": "https://github.com/koyaaarr/open-personality-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/koyaaarr/open-personality-mcp/issues"
+  },
+  "keywords": [
+    "personality",
+    "mcp",
+    "openclaw",
+    "soul-md",
+    "ai-agent",
+    "facets",
+    "profiling"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/koyaaarr/open-personality-mcp",
