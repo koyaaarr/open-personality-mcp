@@ -9,13 +9,18 @@ import { z } from 'zod';
 import { randomUUID } from 'node:crypto';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import type {
-  ProfileStore,
   FacetWithHistory,
   Demographics,
   Language,
   ProfileData,
 } from '@openpersonality/core';
-import { generateSoulMd, generateIdentityMd } from '@openpersonality/core';
+import {
+  generateSoulMd,
+  generateIdentityMd,
+  facetInputSchema,
+  demographicsSchema,
+  languageSchema,
+} from '@openpersonality/core';
 import type { FsProfileStore } from '../lib/fs-store.js';
 
 export function registerCreateProfile(
@@ -26,38 +31,17 @@ export function registerCreateProfile(
     'create_profile',
     'Create a new personality profile. Only name is required; facets and demographics are optional.',
     {
-      name: z.string().min(1).describe('Profile name (required)'),
-      external_id: z.string().optional().describe('External system user ID (for bots)'),
-      facets: z
-        .record(
-          z.string(),
-          z.object({
-            value: z.enum(['a', 'b']),
-            confidence: z.number().min(0).max(1),
-          }),
-        )
+      name: z.string().min(1).max(500).describe('Profile name (required)'),
+      external_id: z.string().max(500).optional().describe('External system user ID (for bots)'),
+      facets: facetInputSchema
         .optional()
-        .describe('Facet values with confidence scores'),
-      demographics: z
-        .object({
-          name: z.string().optional(),
-          creature: z.string().optional(),
-          emoji: z.string().optional(),
-          vibe: z.string().optional(),
-          first_person: z.string().optional(),
-          catchphrase: z.string().optional(),
-          speaking_tone: z.string().optional(),
-          greeting: z.string().optional(),
-          gender: z.string().optional(),
-          age: z.string().optional(),
-          occupation: z.string().optional(),
-          backstory: z.string().optional(),
-        })
+        .describe('Facet values with confidence scores (facet_1..facet_12)'),
+      demographics: demographicsSchema
         .optional()
         .describe('Demographics fields'),
-      soul_md: z.string().optional().describe('Pre-generated SOUL.md (if provided, skips template generation)'),
-      identity_md: z.string().optional().describe('Pre-generated IDENTITY.md'),
-      language: z.enum(['en', 'ja']).optional().describe('Output language'),
+      soul_md: z.string().max(1_000_000).optional().describe('Pre-generated SOUL.md (if provided, skips template generation)'),
+      identity_md: z.string().max(1_000_000).optional().describe('Pre-generated IDENTITY.md'),
+      language: languageSchema.optional().describe('Output language'),
     },
     async (args) => {
       // Check for duplicate external_id
@@ -137,7 +121,6 @@ export function registerCreateProfile(
                 facets,
                 soul_md: soulMd,
                 identity_md: identityMd,
-                storage_path: store.getProfilePath(profileId),
                 generation_mode: generationMode,
               },
               null,

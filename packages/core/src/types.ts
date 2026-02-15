@@ -149,9 +149,28 @@ export interface PresetCharacter {
 // Store interface
 // ---------------------------------------------------------------------------
 
+/** Error thrown when an optimistic-lock version conflict is detected. */
+export class VersionConflictError extends Error {
+  constructor(
+    public readonly profileId: string,
+    public readonly expectedVersion: number,
+    public readonly actualVersion: number,
+  ) {
+    super(
+      `Version conflict for profile "${profileId}": expected ${expectedVersion}, found ${actualVersion}. Another update may have occurred concurrently.`,
+    );
+    this.name = 'VersionConflictError';
+  }
+}
+
 /** Abstract storage interface. Implemented by fs-store (mcp-server). */
 export interface ProfileStore {
-  save(profile: ProfileData, soulMd: string, identityMd: string): Promise<void>;
+  /**
+   * Save a profile. If expectedVersion is provided, performs an optimistic
+   * lock check: the save will fail with VersionConflictError if the on-disk
+   * version does not match expectedVersion.
+   */
+  save(profile: ProfileData, soulMd: string, identityMd: string, expectedVersion?: number): Promise<void>;
   load(profileId: string): Promise<{ profile: ProfileData; soulMd: string; identityMd: string } | null>;
   loadByExternalId(externalId: string): Promise<{ profile: ProfileData; soulMd: string; identityMd: string } | null>;
   list(): Promise<ProfileSummary[]>;

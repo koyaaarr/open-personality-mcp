@@ -24,6 +24,8 @@ export type {
   StoreConfig,
 } from './types.js';
 
+export { VersionConflictError } from './types.js';
+
 // Facet operations
 export {
   getFacets,
@@ -50,5 +52,12 @@ export {
   updateProfileInputSchema,
   validateFacetValue,
   validateConfidence,
+  facetValueSchema,
+  confidenceSchema,
+  languageSchema,
+  facetWithConfidenceSchema,
+  facetKeySchema,
+  facetInputSchema,
+  demographicsSchema,
 } from './validation.js';
 export type { CreateProfileInput, UpdateProfileInput } from './validation.js';

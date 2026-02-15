@@ -7,7 +7,14 @@
 
 import { z } from 'zod';
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { mergeFacets, generateSoulMd, generateIdentityMd } from '@openpersonality/core';
+import {
+  mergeFacets,
+  generateSoulMd,
+  generateIdentityMd,
+  VersionConflictError,
+  facetInputSchema,
+  demographicsSchema,
+} from '@openpersonality/core';
 import type { FsProfileStore } from '../lib/fs-store.js';
 
 export function registerUpdateProfile(
@@ -18,37 +25,17 @@ export function registerUpdateProfile(
     'update_profile',
     'Update an existing profile with new facets/demographics. Performs confidence merge and drift detection.',
     {
-      profile_id: z.string().optional().describe('Profile UUID'),
-      external_id: z.string().optional().describe('External system user ID'),
-      facets: z
-        .record(
-          z.string(),
-          z.object({
-            value: z.enum(['a', 'b']),
-            confidence: z.number().min(0).max(1),
-          }),
-        )
+      profile_id: z.string().max(500).optional().describe('Profile UUID'),
+      external_id: z.string().max(500).optional().describe('External system user ID'),
+      facets: facetInputSchema
         .optional()
-        .describe('Facet values to merge'),
-      demographics: z
-        .object({
-          name: z.string().optional(),
-          creature: z.string().optional(),
-          emoji: z.string().optional(),
-          vibe: z.string().optional(),
-          first_person: z.string().optional(),
-          catchphrase: z.string().optional(),
-          speaking_tone: z.string().optional(),
-          greeting: z.string().optional(),
-          gender: z.string().optional(),
-          age: z.string().optional(),
-          occupation: z.string().optional(),
-          backstory: z.string().optional(),
-        })
+        .describe('Facet values to merge (facet_1..facet_12)'),
+      demographics: demographicsSchema
+        .partial()
         .optional()
         .describe('Demographics fields to update'),
-      soul_md: z.string().optional().describe('Pre-generated SOUL.md'),
-      identity_md: z.string().optional().describe('Pre-generated IDENTITY.md'),
+      soul_md: z.string().max(1_000_000).optional().describe('Pre-generated SOUL.md'),
+      identity_md: z.string().max(1_000_000).optional().describe('Pre-generated IDENTITY.md'),
     },
     async (args) => {
       if (!args.profile_id && !args.external_id) {
@@ -82,6 +69,7 @@ export function registerUpdateProfile(
       }
 
       const { profile } = result;
+      const loadedVersion = profile.version;
       const now = new Date().toISOString();
 
       // Merge facets
@@ -97,11 +85,7 @@ export function registerUpdateProfile(
 
       // Update demographics (only specified fields)
       if (args.demographics) {
-        for (const [key, value] of Object.entries(args.demographics)) {
-          if (value !== undefined) {
-            (profile.demographics as Record<string, unknown>)[key] = value;
-          }
-        }
+        Object.assign(profile.demographics, args.demographics);
       }
 
       profile.updated_at = now;
@@ -115,7 +99,25 @@ export function registerUpdateProfile(
         args.identity_md ??
         generateIdentityMd(profile.facets, profile.demographics, profile.language);
 
-      await store.save(profile, soulMd, identityMd);
+      try {
+        await store.save(profile, soulMd, identityMd, loadedVersion);
+      } catch (err) {
+        if (err instanceof VersionConflictError) {
+          return {
+            content: [
+              {
+                type: 'text' as const,
+                text: JSON.stringify({
+                  error: err.message,
+                  code: 'VERSION_CONFLICT',
+                }),
+              },
+            ],
+            isError: true,
+          };
+        }
+        throw err;
+      }
 
       return {
         content: [

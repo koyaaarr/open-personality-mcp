@@ -15,13 +15,20 @@
 import { readFile, writeFile, mkdir, readdir, rm, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { homedir } from 'node:os';
+import { z } from 'zod';
 import type {
   ProfileStore,
   ProfileData,
   ProfileSummary,
   StoreConfig,
 } from '@openpersonality/core';
-import { getFacetLabel } from '@openpersonality/core';
+import { getFacetLabel, VersionConflictError } from '@openpersonality/core';
+
+const storeConfigSchema = z.object({
+  default_profile: z.string().optional(),
+  language: z.enum(['en', 'ja']),
+  version: z.string(),
+}).strict();
 
 const DEFAULT_BASE_PATH = join(homedir(), '.openpersonality');
 
@@ -54,9 +61,25 @@ export class FsProfileStore implements ProfileStore {
     profile: ProfileData,
     soulMd: string,
     identityMd: string,
+    expectedVersion?: number,
   ): Promise<void> {
     const dir = this.profileDir(profile.id);
     await this.ensureDir(dir);
+
+    // Optimistic lock: verify on-disk version matches expectation
+    if (expectedVersion !== undefined) {
+      try {
+        const raw = await readFile(join(dir, 'profile.json'), 'utf-8');
+        const existing = JSON.parse(raw) as ProfileData;
+        if (existing.version !== expectedVersion) {
+          throw new VersionConflictError(profile.id, expectedVersion, existing.version);
+        }
+      } catch (err) {
+        if (err instanceof VersionConflictError) throw err;
+        // File doesn't exist yet — no conflict possible
+      }
+    }
+
     await Promise.all([
       writeFile(join(dir, 'profile.json'), JSON.stringify(profile, null, 2)),
       writeFile(join(dir, 'SOUL.md'), soulMd),
@@ -149,7 +172,11 @@ export class FsProfileStore implements ProfileStore {
         join(this.basePath, 'config.json'),
         'utf-8',
       );
-      return { ...DEFAULT_CONFIG, ...JSON.parse(data) };
+      const parsed = storeConfigSchema.safeParse(JSON.parse(data));
+      if (parsed.success) {
+        return parsed.data;
+      }
+      return { ...DEFAULT_CONFIG };
     } catch {
       return { ...DEFAULT_CONFIG };
     }
