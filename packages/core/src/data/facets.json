@@ -1,0 +1,134 @@
+[
+  {
+    "facet_index": "facet_1",
+    "category": "communication",
+    "category_ja": "コミュニケーション",
+    "name_ja": "積極的な主張 ↔ 調和的な受容",
+    "name_en": "Assertive Expression ↔ Harmonious Acceptance",
+    "label_a_en": "Assertive",
+    "label_a_ja": "主張的",
+    "label_b_en": "Harmonious",
+    "label_b_ja": "調和的"
+  },
+  {
+    "facet_index": "facet_2",
+    "category": "communication",
+    "category_ja": "コミュニケーション",
+    "name_ja": "直接的な言い回し ↔ 間接的な言い回し",
+    "name_en": "Direct Communication ↔ Indirect Communication",
+    "label_a_en": "Direct",
+    "label_a_ja": "直接的",
+    "label_b_en": "Indirect",
+    "label_b_ja": "間接的"
+  },
+  {
+    "facet_index": "facet_3",
+    "category": "communication",
+    "category_ja": "コミュニケーション",
+    "name_ja": "リーダーシップ ↔ フォロワーシップ",
+    "name_en": "Leadership ↔ Followership",
+    "label_a_en": "Leader",
+    "label_a_ja": "リーダー",
+    "label_b_en": "Follower",
+    "label_b_ja": "フォロワー"
+  },
+  {
+    "facet_index": "facet_4",
+    "category": "values",
+    "category_ja": "価値観",
+    "name_ja": "ワーク一筋 ↔ ライフバランス",
+    "name_en": "Work-Focused ↔ Life-Balance",
+    "label_a_en": "Work-Focused",
+    "label_a_ja": "仕事優先",
+    "label_b_en": "Life-Balance",
+    "label_b_ja": "生活重視"
+  },
+  {
+    "facet_index": "facet_5",
+    "category": "values",
+    "category_ja": "価値観",
+    "name_ja": "リスクテイク ↔ リスク回避",
+    "name_en": "Risk-Taking ↔ Risk-Avoidance",
+    "label_a_en": "Risk-Taking",
+    "label_a_ja": "リスクテイク",
+    "label_b_en": "Risk-Avoidance",
+    "label_b_ja": "リスク回避"
+  },
+  {
+    "facet_index": "facet_6",
+    "category": "thinking",
+    "category_ja": "思考",
+    "name_ja": "共感的判断 ↔ 論理的判断",
+    "name_en": "Empathetic Judgment ↔ Logical Judgment",
+    "label_a_en": "Empathetic",
+    "label_a_ja": "共感的",
+    "label_b_en": "Logical",
+    "label_b_ja": "論理的"
+  },
+  {
+    "facet_index": "facet_7",
+    "category": "thinking",
+    "category_ja": "思考",
+    "name_ja": "抽象的思考 ↔ 具体的思考",
+    "name_en": "Abstract Thinking ↔ Concrete Thinking",
+    "label_a_en": "Abstract",
+    "label_a_ja": "抽象的",
+    "label_b_en": "Concrete",
+    "label_b_ja": "具体的"
+  },
+  {
+    "facet_index": "facet_8",
+    "category": "personality",
+    "category_ja": "性格",
+    "name_ja": "外向的な交流 ↔ 内向的な交流",
+    "name_en": "Extroverted Interaction ↔ Introverted Interaction",
+    "label_a_en": "Extravert",
+    "label_a_ja": "外向的",
+    "label_b_en": "Introvert",
+    "label_b_ja": "内向的"
+  },
+  {
+    "facet_index": "facet_9",
+    "category": "personality",
+    "category_ja": "性格",
+    "name_ja": "情動的な感情 ↔ 冷静な感情",
+    "name_en": "Emotional Responsiveness ↔ Calm Composure",
+    "label_a_en": "Emotional",
+    "label_a_ja": "情動的",
+    "label_b_en": "Calm",
+    "label_b_ja": "冷静"
+  },
+  {
+    "facet_index": "facet_10",
+    "category": "values",
+    "category_ja": "価値観",
+    "name_ja": "開放的に挑戦 ↔ 伝統を重視",
+    "name_en": "Open to Challenges ↔ Values Tradition",
+    "label_a_en": "Open",
+    "label_a_ja": "開放的",
+    "label_b_en": "Traditional",
+    "label_b_ja": "伝統的"
+  },
+  {
+    "facet_index": "facet_11",
+    "category": "values",
+    "category_ja": "価値観",
+    "name_ja": "チームプレイ ↔ ソロプレイ",
+    "name_en": "Team Player ↔ Solo Player",
+    "label_a_en": "Team",
+    "label_a_ja": "チーム",
+    "label_b_en": "Solo",
+    "label_b_ja": "ソロ"
+  },
+  {
+    "facet_index": "facet_12",
+    "category": "thinking",
+    "category_ja": "思考",
+    "name_ja": "計画的な進行 ↔ 柔軟な対応",
+    "name_en": "Planned Progression ↔ Flexible Adaptation",
+    "label_a_en": "Planned",
+    "label_a_ja": "計画的",
+    "label_b_en": "Flexible",
+    "label_b_ja": "柔軟"
+  }
+]

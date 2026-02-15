@@ -1,0 +1,122 @@
+{
+  "facet_1": {
+    "a": {
+      "en": "Firmly asserts own opinions and requests. Takes initiative in discussions.",
+      "ja": "自分の意見や要望をしっかりと主張する。議論では率先して発言する。"
+    },
+    "b": {
+      "en": "Accepts others' opinions and prioritizes harmony. Values group consensus.",
+      "ja": "相手の意見を受け入れ、調和を重視する。全体の合意を大切にする。"
+    }
+  },
+  "facet_2": {
+    "a": {
+      "en": "Communicates thoughts clearly and straightforwardly. Values directness.",
+      "ja": "はっきりと考えを伝え、ストレートに話し合う。率直さを重視する。"
+    },
+    "b": {
+      "en": "Conveys thoughts indirectly while reading others' reactions. Uses nuanced expressions.",
+      "ja": "相手の反応を見ながら、遠回しに伝える。ニュアンスを大切にする。"
+    }
+  },
+  "facet_3": {
+    "a": {
+      "en": "Prefers to show direction and guide others. Comfortable taking the lead.",
+      "ja": "方向性を示し、メンバーを導く立場を好む。先頭に立つことが自然。"
+    },
+    "b": {
+      "en": "Follows others' lead and reliably fulfills assigned roles. Values supporting from behind.",
+      "ja": "他者の指示に従い、与えられた役割を確実に遂行する。支える側が心地よい。"
+    }
+  },
+  "facet_4": {
+    "a": {
+      "en": "Prioritizes career success, even if personal life takes a back seat.",
+      "ja": "仕事での成功を最優先し、プライベートは二の次になってもよい。"
+    },
+    "b": {
+      "en": "Values quality of life and sees work as just one part of living.",
+      "ja": "生活の質を重視し、仕事は生活の一部として捉える。"
+    }
+  },
+  "facet_5": {
+    "a": {
+      "en": "Willing to accept risk of loss if there's potential for significant returns.",
+      "ja": "大きな見返りの可能性があるなら、相応の損失リスクも受け入れる。"
+    },
+    "b": {
+      "en": "Chooses paths with certain returns and avoids risk of loss.",
+      "ja": "確実に見返りが得られる道を選び、損失リスクは避ける。"
+    }
+  },
+  "facet_6": {
+    "a": {
+      "en": "Values intuition and emotions. Considers impact on people when making decisions.",
+      "ja": "直感や感情を大切にし、人々への影響を考慮して判断する。"
+    },
+    "b": {
+      "en": "Emphasizes objective analysis based on data and theory.",
+      "ja": "データや理論に基づき、客観的な分析を重視する。"
+    }
+  },
+  "facet_7": {
+    "a": {
+      "en": "Drawn to possibilities, future visions, and innovative aspects.",
+      "ja": "可能性や将来のビジョン、革新的な側面に興味を持つ。"
+    },
+    "b": {
+      "en": "Focuses on feasibility, concrete procedures, and practical value.",
+      "ja": "実現可能性や具体的な手順、実用的な価値を重視する。"
+    }
+  },
+  "facet_8": {
+    "a": {
+      "en": "Enjoys interacting with many people. Prefers lively, active environments.",
+      "ja": "多くの人と交流を持ち、にぎやかな場所や活動的な環境を好む。"
+    },
+    "b": {
+      "en": "Values deep relationships with fewer people. Prefers quiet environments.",
+      "ja": "少人数での深い付き合いを大切にし、静かな環境で過ごすことを好む。"
+    }
+  },
+  "facet_9": {
+    "a": {
+      "en": "Expresses emotions honestly. Feelings are easily conveyed to others.",
+      "ja": "喜怒哀楽を素直に表現し、周りにも感情が伝わりやすい。"
+    },
+    "b": {
+      "en": "Controls emotions well. Feelings rarely show in expressions or attitude.",
+      "ja": "感情をコントロールし、表情や態度に表れにくい。"
+    }
+  },
+  "facet_10": {
+    "a": {
+      "en": "Eager to try new things. Takes active interest in learning more.",
+      "ja": "積極的に試してみたい、関心を持って詳しく知りたい。"
+    },
+    "b": {
+      "en": "Carefully considers options. Prefers proven methods and familiar approaches.",
+      "ja": "慎重に検討し、実績のある方法や馴染みのあるものを選びたい。"
+    }
+  },
+  "facet_11": {
+    "a": {
+      "en": "Finds more enjoyment in collaborating with others as a team.",
+      "ja": "みんなで協力して進める方が楽しく感じる。"
+    },
+    "b": {
+      "en": "Feels more comfortable working alone at own pace.",
+      "ja": "一人で自分のペースで進める方が居心地が良い。"
+    }
+  },
+  "facet_12": {
+    "a": {
+      "en": "Makes detailed plans in advance and proceeds according to schedule.",
+      "ja": "事前に詳細な計画を立て、スケジュール通りに進める。"
+    },
+    "b": {
+      "en": "Decides only the general direction and flexibly adapts to situations.",
+      "ja": "大まかな方向性だけ決めて、状況に応じて柔軟に対応する。"
+    }
+  }
+}
