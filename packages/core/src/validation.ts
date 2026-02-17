@@ -48,7 +48,7 @@ const facetWithHistorySchema = z.object({
 
 // ---------------------------------------------------------------------------
 // Demographics
-// OpenClaw standard: name, creature, emoji, vibe
+// OpenClaw standard: creature, emoji, vibe (name is top-level in ProfileData)
 // OP extension:      first_person .. backstory
 // ---------------------------------------------------------------------------
 

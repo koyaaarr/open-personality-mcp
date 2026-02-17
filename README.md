@@ -246,7 +246,7 @@ Demographics give your profile a character identity. All fields are optional.
 | `emoji` | Avatar shorthand | `"🦊"` |
 | `vibe` | Overall impression | `"calm & logical"` |
 
-> `name` is passed as a top-level parameter, not inside demographics.
+> `name` is a required top-level parameter in ProfileData. It also exists in Demographics for template convenience, but ProfileData.name is the canonical source.
 > `avatar` (OpenClaw standard) is planned for Phase 2.
 
 **OP Extension** — Open Personality's extended fields for richer character creation:

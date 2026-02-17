@@ -33,7 +33,7 @@ export function registerUpdateProfile(
       demographics: demographicsSchema
         .partial()
         .optional()
-        .describe('Demographics fields to update (4 OpenClaw standard + 8 OP extension). Partial update.'),
+        .describe('Demographics fields to update (3 OpenClaw standard + 8 OP extension). Partial update.'),
       soul_md: z.string().max(1_000_000).optional().describe('Pre-generated SOUL.md'),
       identity_md: z.string().max(1_000_000).optional().describe('Pre-generated IDENTITY.md'),
     },

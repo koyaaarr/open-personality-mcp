@@ -60,16 +60,17 @@ export type FacetCategory = 'communication' | 'values' | 'thinking' | 'personali
 // ---------------------------------------------------------------------------
 // Demographics
 // ---------------------------------------------------------------------------
-// OpenClaw standard fields (4):  name, creature, emoji, vibe
+// OpenClaw standard fields (3):  creature, emoji, vibe
 // OP extension fields (8):       first_person, catchphrase, speaking_tone,
 //                                greeting, gender, age, occupation, backstory
+// Note: `name` exists here for template convenience; canonical source is ProfileData.name.
 // Note: OpenClaw's `avatar` field is planned for Phase 2.
 // ---------------------------------------------------------------------------
 
 /** Demographics for character creation. All fields optional. */
 export interface Demographics {
   // --- OpenClaw Standard (IDENTITY.md Header) ---
-  name?: string;
+  name?: string; // Convenience copy; canonical source is ProfileData.name
   creature?: string;
   emoji?: string;
   vibe?: string;
