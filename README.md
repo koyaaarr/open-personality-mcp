@@ -236,18 +236,31 @@ update_profile(external_id: "discord:123", facets: {
 
 ## Demographics (Optional)
 
-Demographics give your profile a character identity. Independent from facet scores, used for AI agent persona-building.
+Demographics give your profile a character identity. All fields are optional.
+
+**OpenClaw Standard** — mapped to IDENTITY.md Header fields:
 
 | Field | Purpose | Example |
 |---|---|---|
 | `creature` | Character type | `"Fox"`, `"Software Engineer"` |
 | `emoji` | Avatar shorthand | `"🦊"` |
 | `vibe` | Overall impression | `"calm & logical"` |
-| `first_person` | Pronoun | `"僕"`, `"I"` |
+
+> `name` is passed as a top-level parameter, not inside demographics.
+> `avatar` (OpenClaw standard) is planned for Phase 2.
+
+**OP Extension** — Open Personality's extended fields for richer character creation:
+
+| Field | Purpose | Example |
+|---|---|---|
+| `first_person` | Pronoun (important for Japanese) | `"僕"`, `"I"` |
 | `catchphrase` | Signature phrase | `"なるほど"` |
 | `speaking_tone` | Communication style | `"落ち着いて論理的"` |
 | `greeting` | Opening line | `"Hey there!"` |
-| `gender` / `age` / `occupation` / `backstory` | Background | |
+| `gender` | Affects pronouns/tone | `"male"`, `"non-binary"` |
+| `age` | Background context | `"30s"` |
+| `occupation` | Expertise/role | `"Software Engineer"` |
+| `backstory` | Character background (1-2 sentences) | `"Former teacher turned freelancer"` |
 
 ## Usage as an OpenClaw Skill
 

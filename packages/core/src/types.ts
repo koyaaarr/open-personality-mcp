@@ -58,22 +58,27 @@ export interface FacetDefinition {
 export type FacetCategory = 'communication' | 'values' | 'thinking' | 'personality';
 
 // ---------------------------------------------------------------------------
-// Demographics (12 fields for Phase 1 MVP)
+// Demographics
+// ---------------------------------------------------------------------------
+// OpenClaw standard fields (4):  name, creature, emoji, vibe
+// OP extension fields (8):       first_person, catchphrase, speaking_tone,
+//                                greeting, gender, age, occupation, backstory
+// Note: OpenClaw's `avatar` field is planned for Phase 2.
 // ---------------------------------------------------------------------------
 
 /** Demographics for character creation. All fields optional. */
 export interface Demographics {
-  // Identity (4)
+  // --- OpenClaw Standard (IDENTITY.md Header) ---
   name?: string;
   creature?: string;
   emoji?: string;
   vibe?: string;
-  // Speaking style (4)
+  // --- OP Extension: Speaking Style ---
   first_person?: string;
   catchphrase?: string;
   speaking_tone?: string;
   greeting?: string;
-  // Basic demographics (4)
+  // --- OP Extension: Background ---
   gender?: string;
   age?: string;
   occupation?: string;

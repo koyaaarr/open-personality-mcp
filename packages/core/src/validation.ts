@@ -48,20 +48,25 @@ const facetWithHistorySchema = z.object({
 
 // ---------------------------------------------------------------------------
 // Demographics
+// OpenClaw standard: name, creature, emoji, vibe
+// OP extension:      first_person .. backstory
 // ---------------------------------------------------------------------------
 
 const MAX_SHORT_TEXT = 500;
 const MAX_BACKSTORY = 5000;
 
 export const demographicsSchema = z.object({
+  // OpenClaw Standard
   name: z.string().max(MAX_SHORT_TEXT).optional(),
   creature: z.string().max(MAX_SHORT_TEXT).optional(),
   emoji: z.string().max(50).optional(),
   vibe: z.string().max(MAX_SHORT_TEXT).optional(),
+  // OP Extension: Speaking Style
   first_person: z.string().max(MAX_SHORT_TEXT).optional(),
   catchphrase: z.string().max(MAX_SHORT_TEXT).optional(),
   speaking_tone: z.string().max(MAX_SHORT_TEXT).optional(),
   greeting: z.string().max(MAX_SHORT_TEXT).optional(),
+  // OP Extension: Background
   gender: z.string().max(MAX_SHORT_TEXT).optional(),
   age: z.string().max(MAX_SHORT_TEXT).optional(),
   occupation: z.string().max(MAX_SHORT_TEXT).optional(),

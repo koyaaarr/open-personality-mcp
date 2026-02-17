@@ -38,7 +38,7 @@ export function registerCreateProfile(
         .describe('Facet values with confidence scores (facet_1..facet_12)'),
       demographics: demographicsSchema
         .optional()
-        .describe('Demographics fields'),
+        .describe('Demographics: 4 OpenClaw standard (creature, emoji, vibe) + 8 OP extension fields. All optional.'),
       soul_md: z.string().max(1_000_000).optional().describe('Pre-generated SOUL.md (if provided, skips template generation)'),
       identity_md: z.string().max(1_000_000).optional().describe('Pre-generated IDENTITY.md'),
       language: languageSchema.optional().describe('Output language'),
